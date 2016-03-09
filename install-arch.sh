@@ -10,7 +10,7 @@ echo "Formatting the new partitions..."
 sh ./parts/format-mount.sh
 
 echo "Configuring mirrors..."
-sh ./parts/irrors.sh
+sh ./parts/mirrors.sh
 
 echo "Installing base packages and performing fstab..."
 sh ./parts/install.sh
