@@ -50,7 +50,7 @@ parted /dev/mmcblk0 name 3 swap
 parted /dev/mmcblk0 name 4 home
 ```
 
-## Format the fyle systems and enable swap
+## Format the file systems and enable swap
 
 #### Format the file systms (If you made them in order)
 
