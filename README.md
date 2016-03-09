@@ -20,6 +20,12 @@ lsblk
 parted /dev/mmcblk0 print
 ```
 
+If you have any existing partitions that you don't need, you can remove them like this.
+
+```
+parted /dev/mmcblk0 rm [partition #]
+```
+
 #### Make the EFI partition and set the boot flag
 
 ```
