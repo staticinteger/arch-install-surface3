@@ -9,7 +9,7 @@ sh ./parts/partition.sh
 echo "Formatting the new partitions..."
 sh ./parts/format-mount.sh
 
-echo "Configuring mirrors..."
+echo "Configuring mirrors (This will take a while)..."
 sh ./parts/mirrors.sh
 
 echo "Installing base packages and performing fstab..."
