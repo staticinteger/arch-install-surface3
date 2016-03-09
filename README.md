@@ -4,35 +4,30 @@ The commands I use to install arch linux on my Surface (not pro) 3
 
 ## Getting started
 
-### connect to wifi
+#### connect to wifi & update the system clock
 
 ```
 wifi-menu
-```
-
-### Update the system clock
-
-```
 timedatectl set-ntp true
 ```
 
 ## Partition the hard drive
 
-### Verify your hard drive is there and look at existing partitions
+#### Verify your hard drive is there and look at existing partitions
 
 ```
 lsblk
 parted /dev/mmcblk0 print
 ```
 
-### Make the EFI partition and set the boot flag
+#### Make the EFI partition and set the boot flag
 
 ```
 parted /dev/mmcblk0 mkpart ESP fat32 1MiB 513MiB
 parted /dev/mmcblk0 set 1 boot on
 ```
 
-### Make our root, swap, and home partitions
+#### Make our root, swap, and home partitions
 
 ```
 parted /dev/mmcblk0 mkpart primary ext4 513MiB 20.5GiB
@@ -40,7 +35,7 @@ parted /dev/mmcblk0 mkpart primary linux-swap 20.5GiB 24.5GiB
 parted /dev/mmcblk0 mkpart primary ext4 24.5GiB 100%
 ```
 
-### Set the names on our partitions (If you made them in order)
+#### Set the names on our partitions (If you made them in order)
 
 ```
 parted /dev/mmcblk0 name 1 efi-boot
@@ -51,7 +46,7 @@ parted /dev/mmcblk0 name 4 home
 
 ## Format the fyle systems and enable swap
 
-### Format the file systms (If you made them in order)
+#### Format the file systms (If you made them in order)
 
 ```
 mkfs.fat -F32 /dev/mmcblk0p1
@@ -95,7 +90,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt /bin/bash
 ```
 
-### Set language
+#### Set language
 
 ```
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
