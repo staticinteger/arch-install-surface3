@@ -16,7 +16,8 @@ echo "Installing base packages and performing fstab..."
 sh ./parts/install.sh
 
 echo "Running chroot script..."
-arch-chroot /mnt /bin/bash -c "./parts/chroot.sh"
+cp ./parts/chroot.sh /mnt/root/chroot.sh
+arch-chroot /mnt /bin/bash
 
-echo "Finishing up..."
+echo "Running finish script..."
 sh ./parts/finish.sh
